@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Михаил Павлов, javascript-разработчик</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 5vh 10vw 10vh 10vw;
+            font-family: FreeSans, "Open Sans", Arial, Helvetica, sans-serif;
+        }
+        h1,
+        h2,
+        h3 {
+            padding: 0;
+            text-align: center;
+            font-weight: normal;
+        }
+        h1 {
+            margin-bottom: .2em;
+            font-size: 3rem;
+        }        
+        h2 {
+            margin-top: 0;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: #d00;
+        }   
+        h3 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: #d00;
+        }
+        a {
+            color: #68a;
+        }
+        a:hover {
+            text-decoration: none;
+        }        
+        .contacts {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 400px;
+            line-height: 2;
+        }     
+        .contacts dt {
+            margin: 0;
+            width: 30%;
+            padding: 0;
+            text-align: right;
+        }
+        .contacts dd {
+            margin: 0;
+            width: 60%;
+            padding: 0;
+        }        
+        @media (max-width: 300px) {
+            dt {
+                width: 100%;
+                text-align: left;
+            }
+            dd {
+                margin-left: 20%;
+                width: 80%;
+            }            
+        }
+        .tags {
+            margin: 3rem 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+        .tags li {
+            display: inline-block;
+            vertical-align: baseline;
+            margin: 0 .5em .5em .5em;
+            padding: 0;
+            color: #999;
+        }
+        .tags .big {
+            font-size: 130%;
+            color: #000;
+        }
+        .tags .small {
+            font-size: 70%;
+        }   
+        .timeline {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            margin-top: 3rem;
+            margin-bottom: 5rem;
+            font-size: 5vh;
+        }   
+            .timeline .years {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }           
+                .timeline .years li {
+                    position: relative;
+                    margin: 0;
+                    padding: 0;
+                    font-size: .8rem;
+                    line-height: 5vh;
+                    color: #999;
+                }                   
+                    .timeline .years li:after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 80vw;
+                        height: 1px;
+                        background-color: #eee;
+                    }         
+            .timeline .item {
+                position: relative;
+                width: 5vw;
+            }                                                 
+                .timeline .item:before,
+                .timeline .item:after {
+                    position: absolute;
+                    right: 0;
+                    left: 0;
+                    height: .5em;
+                }                 
+                .timeline .item:before {
+                    content: '';                    
+                    top: 0;
+                    background-image: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0));
+                }                 
+                .timeline .item:after {
+                    bottom: 0;
+                    background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+                }                      
+                .timeline .item--jquery:after,
+                .timeline .item--ngjs:after {
+                    content: '';
+                }                                                                        
+                .timeline .label {
+                    position: absolute;
+                    top: -1.5rem;
+                    left: 50%;
+                    font-size: .8rem;
+                    background-color: rgba(255,255,255,.5);
+                    color: #444;
+                    transform: translate(-50%, 0);
+                }            
+            .timeline .item--css {
+                margin-top: .5em;
+                background-color: #47e;
+            }                                                
+            .timeline .item--jquery {
+                margin-top: 6.5em;
+                height: 8em;
+                background-color: #4a9;
+            }                                 
+            .timeline .item--vanilla {
+                margin-top: 8.5em;
+                background-color: #cc0;
+            }                        
+            .timeline .item--ngjs {
+                margin-top: 12.3em;
+                height: 2.7em;
+                background-color: #d00;
+            }                        
+            .timeline .item--node {
+                margin-top: 14.3em;
+                background-color: #6c6;
+            }                                                            
+            .timeline .item--ng {
+                margin-top: 14.7em;
+                background-color: #d00;
+            }                                  
+        .projects {
+            margin: 1.5rem 0;
+        }     
+            .projects dt {
+                margin-bottom: .5em;
+            }             
+            .projects dd {
+                margin-left: 3em;
+                line-height: 1.5;
+            }                     
+    </style>
+</head>
+<body>
+    <!--
+        привет, коллега ;)
+        да, я не минифицировал код и не использовал здесь БЭМ 
+        потому что нафига?
+    -->
+    <div class="page">
+        <h1>Михаил Павлов</h1>
+        <h2>javascript-разработчик</h2>
+
+        <dl class="contacts">
+            <dt>E-mail:</dt>
+                <dd>
+                    <a href="mailto:pavlov.michael@gmail.com">pavlov.michael@gmail.com</a>
+                </dd>
+            <dt>Telegram:</dt>
+                <dd>+7-963-004-17-26</dd>
+            <dt>Github:</dt>
+                <dd>
+                    <a href="https://github.com/m-pavlov/">github.com/m-pavlov</a>
+                </dd>
+            <dt>Habrahabr:</dt>
+                <dd>
+                    <a href="https://habrahabr.ru/users/pavlovm/">habrahabr.ru/users/pavlovm</a>
+                </dd>                                    
+            <dt>Upwork:</dt>
+                <dd>
+                    <a href="https://www.upwork.com/o/profiles/users/_~016265dbe2b63ce656/">профиль</a>
+                </dd>                          
+            <dt>ВКонтакте:</dt>
+                <dd>
+                    <a href="https://vk.com/pavlov.michael">vk.com/pavlov.michael</a>
+                </dd>                                                
+            <dt>Город:</dt>
+                <dd>
+                    <a href="http://maps.yandex.ru/?ll=65.739203%2C55.563186&spn=17.358398%2C5.462720&z=7&l=sat%2Cskl">Курган</a>
+                </dd>                      
+        </dl>
+
+        <ul class="tags">
+            <li>HTML</li>
+            <li>Twig</li>
+            <li>Smarty</li>
+            <li>Jade/Pug</li>
+            <li class="big">CSS</li>
+            <li>Stylus</li>
+            <li>Less</li>
+            <li>SASS</li>
+            <li>BEM</li>
+            <li class="big">Javascript</li>
+            <li class="big">Vanilla</li>
+            <li>jQuery</li>
+            <li>AngularJS</li>
+            <li>TypeScript</li>        
+            <li class="big">Angular</li>
+            <li>Vue</li>
+            <li class="small">React</li>
+            <li>Node</li>
+            <li>Express</li>
+            <li class="small">SQL</li>
+            <li>Mongo</li>
+            <li class="small">PHP</li>
+            <li>Grunt</li>
+            <li>Gulp</li>
+            <li>Webpack</li>
+            <li>SVN</li>
+            <li>Git</li>
+            <li>Agile</li>
+            <li>Redmine</li>
+            <li>Jira</li>
+        </ul>
+
+        <div class="timeline">
+            <ul class="years">
+                <li>2002</li>
+                <li>2003</li>
+                <li>2004</li>
+                <li>2005</li>
+                <li>2006</li>
+                <li>2007</li>
+                <li>2008</li>
+                <li>2009</li>
+                <li>2010</li>
+                <li>2011</li>
+                <li>2012</li>
+                <li>2013</li>
+                <li>2014</li>
+                <li>2015</li>
+                <li>2016</li>
+                <li>2017</li>
+            </ul>
+            <div class="item item--css">
+                <div class="label">
+                    HTML+CSS
+                </div>
+            </div>
+            <div class="item item--jquery">
+                <div class="label">
+                    jQuery
+                </div>
+            </div>        
+            <div class="item item--vanilla">
+                <div class="label">
+                    VanillaJS
+                </div>
+            </div>                    
+            <div class="item item--ngjs">
+                <div class="label">
+                    AngularJS
+                </div>
+            </div>                                
+            <div class="item item--node">
+                <div class="label">
+                    Node+Express
+                </div>
+            </div>                                                                 
+            <div class="item item--ng">
+                <div class="label">
+                    Angular
+                </div>
+            </div>                     
+        </div>
+
+        <h3>Свои проекты</h3>
+        <dl class="projects">
+            <dt>
+                <a href="http://ostranah.ru">ostranah.ru</a> 
+            </dt>
+            <dd>
+                Географический справочник с посещаемостью около 80-90 тысяч человек в месяц. Последний раз переписывался на PHP+MySQL в 2011 году, сейчас ждет перевода на NodeJS+MongoDB.
+            </dd>
+        </dl>
+
+    </div>
+
+    <script>
+
+    </script>
+
+</body>
+</html>
